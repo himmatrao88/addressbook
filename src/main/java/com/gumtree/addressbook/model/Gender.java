@@ -9,10 +9,7 @@ public enum Gender {
     MALE("Male"),
     
     /** The female. */
-    FEMALE("Female"),
-    
-    /** The unknown. */
-    UNKNOWN("Unknown");
+    FEMALE("Female");
     
     /** The value. */
     public final String value;

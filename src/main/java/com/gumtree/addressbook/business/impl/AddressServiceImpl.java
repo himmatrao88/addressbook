@@ -10,9 +10,13 @@ import com.gumtree.addressbook.dao.AddressDAO;
 import com.gumtree.addressbook.model.Address;
 import com.gumtree.addressbook.model.Gender;
 
+/**
+ * The Class AddressServiceImpl.
+ */
 @Service
 public class AddressServiceImpl implements AddressService{
     
+    /** The address DAO. */
     @Autowired
     private AddressDAO addressDAO;
     
