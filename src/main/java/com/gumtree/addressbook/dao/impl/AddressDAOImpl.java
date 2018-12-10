@@ -1,5 +1,6 @@
 package com.gumtree.addressbook.dao.impl;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -44,7 +45,11 @@ public class AddressDAOImpl implements AddressDAO {
      */
     private void initializeAddressList() {
         addressList = new ArrayList<Address>();
-        addressList.addAll(parser.processInputFile(fileName));
+        try {
+            addressList.addAll(parser.processInputFile(fileName));
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException("File not found at given location: "+fileName);
+        }
     }
     
     @Override

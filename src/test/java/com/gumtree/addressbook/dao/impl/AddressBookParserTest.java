@@ -24,4 +24,9 @@ public class AddressBookParserTest {
     public void testProcessInputFile() throws FileNotFoundException {
         assertEquals(6, adr.processInputFile("src/test/resources/addressTest.txt").size());
     }
+    
+    @Test(expected=FileNotFoundException.class)
+    public void testProcessInputFile_NotExisting() throws FileNotFoundException{
+        adr.processInputFile("src/test/resources/addressTestWWW.txt").size();
+    }
 }
