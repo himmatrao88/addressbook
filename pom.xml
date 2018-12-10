@@ -8,7 +8,7 @@
 	<name>address-book-reader</name>
 	<description>Address book reader</description>
 	<properties>
-		<spring.version>4.3.5.RELEASE</spring.version>
+		<spring.version>4.3.18.RELEASE</spring.version>
 		<junit.version>4.12</junit.version>
 		<mockito.version>1.8.4</mockito.version>
 	</properties>
