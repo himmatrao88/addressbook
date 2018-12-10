@@ -2,6 +2,7 @@ package com.gumtree.addressbook.dao.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
@@ -48,16 +49,24 @@ public class AddressDAOImpl implements AddressDAO {
     
     @Override
     public Address getOldestPerson() {
-        return null;
+        Optional<Address> address = addressList.stream()
+                                    .sorted((a,b) -> a.getDateOfBirth().compareTo(b.getDateOfBirth()))
+                                    .findFirst();
+        return address.orElse(null);
     }
     
     @Override
     public long getCountBasedOnGender(final Gender gender) {
-        return 0L;
+        return addressList.stream()
+                .filter(address -> gender == address.getGender())
+                .count();
     }
     
     @Override
     public Address getAddressByName(final String name) {
-        return null;
+        Optional<Address> address = addressList.stream()
+                                                .filter(ad -> ad.getName().equalsIgnoreCase(name))
+                                                .findFirst();
+        return address.orElse(null);
     }
 }
